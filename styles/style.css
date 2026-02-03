@@ -218,10 +218,6 @@
   transition: box-shadow 0.3s ease;
 }
 
-.card__image-container {
-  position: relative;
-}
-
 .card__label {
   position: absolute;
   top: 25px;
