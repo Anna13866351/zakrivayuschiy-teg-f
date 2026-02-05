@@ -73,7 +73,7 @@
 }
 
 .like-icon.is-liked .heart__sparks {
-  animation: sparks-appearance 0.3s ease-in 0.3s;
+  animation: fadeIn 0.3s ease-in 0.3s;
 }
 
 @keyframes heart-scale {
@@ -88,7 +88,7 @@
   }
 }
 
-@keyframes sparks-appearance {
+@keyframes fadeIn {
   0% {
     opacity: 0;
   }

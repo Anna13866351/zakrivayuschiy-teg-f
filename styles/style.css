@@ -9,11 +9,6 @@
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
 */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
 
 .page {
   margin: 0;
@@ -46,7 +41,7 @@
   /*height: clamp(327px, 50vh, 368px);*/
   padding-top: clamp(7.625rem, 7.0481rem + 2.4615vw, 8.125rem);
   padding-block-end: clamp(7.625rem, 7.0481rem + 2.4615vw, 8.125rem);
-  font-family: var(--accent-font);
+  font-family: var(--accent-font), fantasy;
 }
 
 .header__title {
@@ -86,7 +81,7 @@
 }
 
 .card__title {
-  font-family: var(--main-font);
+  font-family: var(--main-font), sans-serif;
   font-size: 18px;
   margin: 0;
   padding: 4px 10px;
@@ -106,22 +101,29 @@
 
 .card__footer {
   display: flex;
-  justify-content: flex-end;
-  align-items: top;
+  justify-content: flex-end;  
   padding-inline-end: 25px;
   padding-block-end: 25px;
   gap: 10px;
 }
 
-.card__like-button {
-  position: relative;
-  background: transparent;
+.button{
   border: 2px solid var(--accent-color);
-  padding: 11px 20px 11px 20px;
-  cursor: pointer;
-  font-family: var(--accent-font);
+  font-family: var(--accent-font), fantasy;
   font-size: 14px;
   color: var(--button-text-color);
+}
+
+.like-icon{
+  width: 39px;
+  height: 36px;
+}
+
+.card__like-button {
+  position: relative;
+  background: transparent;  
+  padding: 11px 20px 11px 20px;
+  cursor: pointer;
   overflow: hidden;
   transition: box-shadow 0.3s ease;
   min-width: 130px;
@@ -130,15 +132,16 @@
 
 .card__icon-button {
   background: transparent;
-  border: 2px solid transparent;
+  /*border: 2px solid transparent;*/
+  border: transparent;
   padding: 0;
   cursor: pointer;
-  width: 33px;
+  width: 38px;
   height: 38px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: border-color 0.3s ease;
+  transition: box-shadow 0.3s ease;
 }
 
 .save-button {
@@ -149,13 +152,9 @@
   gap: 8px;
   margin: auto;
   /*width: 355px;*/
-  background: var(-button-text-color);
-  border: 2px solid var(--accent-color);
+  background: var(--button-text-color);
   padding: 15px 20px;
   cursor: pointer;
-  font-family: var(--accent-font);
-  font-size: 14px;
-  color: var(--button-text-color);
   line-height: 90%;
   overflow: hidden;
   margin-bottom: 100px;
@@ -187,12 +186,13 @@
 }
 
 .dialog__text {
-  font-family: var(--accent-font);
+  font-family: var(--accent-font), fantasy;
   font-size: 14px;
   line-height: 1.5;
   text-transform: uppercase;
   margin: 0;
   color: var(--text-color);
+  width: 234px;
 }
 
 .dialog__icon {
@@ -207,15 +207,12 @@
   position: relative;
   width: 100%;
   background: transparent;
-  border: 2px solid var(--accent-color);
-  padding: 12px 135px;
+  padding: 12px 132px;
   margin-top: 30px;
   cursor: pointer;
-  font-family: var(--accent-font);
-  font-size: 14px;
-  color: var(--button-text-color);
   overflow: hidden;
   transition: box-shadow 0.3s ease;
+  text-transform: uppercase;
 }
 
 .card__label {
@@ -225,7 +222,7 @@
   z-index: 1;
   opacity: 0.5;
   color: var(--text-color);
-  font-family: var(--accent-font);
+  font-family: var(--accent-font), fantasy;
   font-size: 14px;
   text-shadow:
     -1px 0 var(--label-stroke-color),
@@ -281,16 +278,19 @@
   filter: brightness(110%) contrast(120%) saturate(150%);
 }
 
-.card__icon-button:focus {
+.button:focus {
   outline: none;
 }
 
 .card__icon-button:focus-visible {
-  border-color: 2px var(--accent-color);
+  border-color: 2px solid var(--accent-color);
+  /*outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px var(--accent-color);*/
 }
 
-.card__like-button:focus {
-  outline: none;
+
+.card__like-button:focus-visible {
   box-shadow: 2px 2px 0 var(--accent-color);
 }
 
@@ -318,7 +318,6 @@
 }
 
 .save-button:focus {
-  outline: none;
   box-shadow: 2px 2px 0 var(--accent-color);
 }
 
@@ -346,7 +345,6 @@
 }
 
 .dialog__button:focus {
-  outline: none;
   box-shadow: 2px 2px 0 var(--accent-color);
 }
 
@@ -385,7 +383,12 @@
   .save-button {
     flex-direction: column;
     padding: 17px;
-  }
+}
+
+.save-button__icon {
+  width: 28px;
+  height: 28px;
+}
 
   .dialog {
     padding: 30px 40px;
@@ -394,6 +397,7 @@
   .dialog__text {
     width: 234px;
   }
+
   .dialog__button {
     padding: 12px 117px;
   }
